@@ -31,6 +31,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.hamcrest.Matcher
+import org.junit.Assert
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -64,9 +66,6 @@ class ChangeTextBehaviorKtTest {
                 .perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard())
         onView(withId(R.id.changeTextBt)).perform(click())
 
-        logOutButtonMatcher.tap()
-        logOutButtonMatcher.wait(5)
-
 
         // Check that the text was changed.
         onView(withId(R.id.textToBeChanged)).check(matches(withText(STRING_TO_BE_TYPED)))
@@ -83,9 +82,20 @@ class ChangeTextBehaviorKtTest {
         onView(withId(R.id.show_text_view)).check(matches(withText(STRING_TO_BE_TYPED)))
     }
 
+    @Test
+    fun checkChangedText() {
+        TextInputField.typeText(STRING_TO_BE_TYPED)
+        ChangeTextBtn.tap()
+
+        Assert.assertEquals(STRING_TO_BE_TYPED, TextViewField.getText())
+    }
+
     companion object {
 
-        val STRING_TO_BE_TYPED = "Espresso"
-        val logOutButtonMatcher: Matcher<View> by lazy { withId(R.id.editTextUserInput) }
+        val STRING_TO_BE_TYPED = "I like mobile testing"
+
+        val TextInputField: Matcher<View> by lazy { withId(R.id.editTextUserInput) }
+        val ChangeTextBtn: Matcher<View> by lazy { withId(R.id.changeTextBt) }
+        val TextViewField: Matcher<View> by lazy { withId(R.id.textToBeChanged) }
     }
 }
