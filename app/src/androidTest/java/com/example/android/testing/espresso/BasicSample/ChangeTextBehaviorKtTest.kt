@@ -88,6 +88,7 @@ class ChangeTextBehaviorKtTest {
         ChangeTextBtn.tap()
 
         Assert.assertEquals(STRING_TO_BE_TYPED, TextViewField.getText())
+        isTextOnScreen(TextInputField.getText())
     }
 
     companion object {
