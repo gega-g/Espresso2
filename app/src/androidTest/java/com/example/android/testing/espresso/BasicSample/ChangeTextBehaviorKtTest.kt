@@ -30,6 +30,10 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import com.example.android.testing.espresso.BasicSample.Helper.getText
+import com.example.android.testing.espresso.BasicSample.Helper.tap
+import com.example.android.testing.espresso.BasicSample.Helper.typeText
+import com.example.android.testing.espresso.BasicSample.Helper.waitForViewVisible
 import org.hamcrest.Matcher
 import org.junit.Assert
 import org.junit.Assert.assertTrue
@@ -89,6 +93,7 @@ class ChangeTextBehaviorKtTest {
 
         Assert.assertEquals(STRING_TO_BE_TYPED, TextViewField.getText())
         isTextOnScreen(TextInputField.getText())
+
     }
 
     companion object {

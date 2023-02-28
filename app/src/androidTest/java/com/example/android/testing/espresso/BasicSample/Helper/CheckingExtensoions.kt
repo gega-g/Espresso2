@@ -8,6 +8,9 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.viewpager.widget.ViewPager
+import com.example.android.testing.espresso.BasicSample.Helper.UITestingExceptions
+import com.example.android.testing.espresso.BasicSample.Helper.waitForViewVisible
+import com.example.android.testing.espresso.BasicSample.Helper.withIndex
 import org.hamcrest.Matcher
 import org.hamcrest.core.IsNot.not
 

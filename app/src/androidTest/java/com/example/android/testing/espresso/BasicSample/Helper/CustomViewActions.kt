@@ -1,4 +1,4 @@
-package com.example.android.testing.espresso.BasicSample
+package com.example.android.testing.espresso.BasicSample.Helper
 
 import android.app.Instrumentation
 import android.graphics.drawable.ColorDrawable
